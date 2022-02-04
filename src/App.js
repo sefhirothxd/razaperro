@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ListaLetras from './components/ListaLetras';
+import ListaPerros from './components/ListaPerros';
+import Image from './components/ImgDog';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App container mx-auto">
+			<h1 className="text-3xl font-bold my-4 ml-4">Api Raza de perros</h1>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<ListaLetras />} />
+					<Route path="/breed/:id" element={<ListaPerros />} />
+					<Route path="/breed/:id/:id/image" element={<Image />} />
+				</Routes>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;
